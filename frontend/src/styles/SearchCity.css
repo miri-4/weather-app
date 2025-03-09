@@ -1,0 +1,109 @@
+/* עיצוב הקונטיינר של שדה החיפוש */
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.taxt-search {
+   
+    text-align: left;
+    font: normal normal 300 30px/44px Heebo;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+    margin-top: 150px;
+}
+
+.search-form{
+    margin-top: 50px;
+}
+.city-name {
+    text-align: left;
+    font: normal normal 300 16px/22px Heebo;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+    margin-bottom: 5px;
+    margin-left: 8px;
+}
+
+/* עיצוב שדה החיפוש */
+.search-input {
+    width: 300px;
+    height: 30px;
+    padding: 10px;
+    padding-right: 50px;
+    border: 2px #ccc;
+    font-size: 16px;
+    background: #FFFFFF 0% 0% no-repeat padding-box !important;
+    border-radius: 10px;
+    opacity: 1;
+    border: 2px solid transparent;
+    outline: none;
+    font: normal normal normal 22px/32px Heebo;
+    letter-spacing: 0px;
+    color: #363636;
+    opacity: 1;
+    font-weight: 300;
+
+}
+
+/* מסיר שינוי צבע וכחול כששדה החיפוש בפוקוס */
+.search-input:focus {
+    background-color: white !important;
+    border: 2px solid transparent !important;
+    box-shadow: none !important;
+}
+
+/* מסיר רקע כחול כשבוחרים ערך מההשלמה האוטומטית */
+.search-input:-webkit-autofill,
+.search-input:-webkit-autofill:hover,
+.search-input:-webkit-autofill:focus,
+.search-input:-webkit-autofill:active {
+    background-color: white !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: black !important;
+}
+
+/* מסיר את הרקע הכחול ברשימת האוטו-קומפליט */
+input:-internal-autofill-selected {
+    background-color: white !important;
+}
+
+.search-submit {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    width: 95px;
+    height: 36px;
+    cursor: pointer;
+    font: normal normal 300 18px/27px Heebo;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 100;
+    background: #046B3B 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.search-submit:hover {
+    background-color: #04522d;
+}
+.error-message{
+    margin-left: 8px;
+
+    color: #821a1a;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 300;
+}
+

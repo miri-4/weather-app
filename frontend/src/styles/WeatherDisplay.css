@@ -1,0 +1,139 @@
+.weather-card {
+    width: 73.7%;
+    height: 87.1%;
+    max-width: 435px; 
+    max-height: 514px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: #27737D 0% 0% no-repeat padding-box;
+    border-radius: 30px;
+    opacity: 1;
+}
+
+.name {
+    text-align: left;
+    font: normal normal normal 26px/26px Heebo;
+    letter-spacing: 0px;
+    color: #E8F1F2;
+    opacity: 1;
+}
+
+.country {
+    height: 32px;
+    text-align: left;
+    font: normal normal 300 22px/22px Heebo;
+    letter-spacing: 0px;
+    color: #A8C6CB;
+    opacity: 1;
+}
+
+.dateTime {
+    height: 27px;
+    text-align: left;
+    font: normal normal 300 18px/22px Heebo;
+    letter-spacing: 0px;
+    color: #A8C6CB;
+    opacity: 1;
+}
+
+.temperature {
+    width: 131px;
+    text-align: left;
+    font: normal normal 130px/130px Heebo;
+    letter-spacing: -16.9px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-bottom: 0px;
+    font-weight: 500;
+
+}
+
+.condition {
+    margin-top: 0px;
+    text-align: left;
+    font: normal normal 300 30px/30px Heebo;
+    letter-spacing: 0px;
+    color: #E8F1F2;
+    opacity: 1;
+}
+
+.details {
+    display: flex;
+    margin-top: 30px;
+    height: 62px;
+}
+
+.precipitation-txt,
+.humidity-txt,
+.wind_kph-txt {
+    width: 109px;
+    height: 29px;
+    text-align: center;
+    font: normal normal 100 20px/30px Heebo;
+    letter-spacing: 0px;
+    color: #E8F1F2;
+    opacity: 1;
+    margin: 10px;
+}
+
+.precipitation,
+.humidity,
+.wind_kph {
+    height: 29px;
+    text-align: center;
+    font: normal normal 400 20px/30px Heebo;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.hourly-forecast {
+    display: flex;
+   
+    margin-top: 60px;
+    margin-bottom: 0px;
+    width: 324px;
+    height: 50px;
+}
+.hourly-forecast > div {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin: 10px; 
+}
+
+.hourly-forecast .hour {
+    flex-direction: column;
+    top: 577px;
+    left: 957px;
+    width: 44px;
+    height: 27px;
+    text-align: left;
+    font: normal normal 300 18px/22px Heebo;
+    letter-spacing: 0px;
+    color: #A8C6CB;
+    opacity: 1;
+}
+
+.degrees {
+    top: 600px;
+    left: 1107px;
+    width: 20px;
+    height: 27px;
+    text-align: left;
+    font: normal normal medium 18px/22px Heebo;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.error-city {
+    margin-left: 8px;
+    color: #821a1a;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+}

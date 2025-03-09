@@ -1,0 +1,220 @@
+/* Tablets - Medium Screens */
+@media (max-width: 1020px) {
+    .app-container {
+        flex-direction: column;
+        align-items: center;
+        width: 95vw;
+        height: auto;
+        padding: 20px;
+    }
+
+    .search-container {
+        text-align: center;
+        align-items: center;
+        margin-top: 350px;
+        margin-bottom: 50px;
+    }
+
+    .weather-container {
+        width: 70%;
+        height: auto;
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .weather-card {
+        padding: 30px !important;
+        width: 60% !important;
+        height: auto !important;
+    }
+
+    .temperature {
+        font-size: 100px;
+    }
+
+    .footer {
+        left: 10px;
+        bottom: 10px;
+        position: relative;
+    }
+}
+
+/* Phones - Small Screens */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+        width: 100vw;
+        padding: 10px;
+    }
+
+    .logo {
+       left:  44% !important;
+    }
+
+    .taxt-search {
+        text-align: center !important;
+        margin-top: 100% !important;
+    }
+
+    .search-container {
+        width: 90%;
+        justify-content: center;
+        margin-top: 0px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .weather-container {
+        width: 90% !important;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .weather-card {
+        width: 70% !important;
+        height: 80%;
+        padding: 15px;
+    }
+
+    .temperature {
+        font-size: 80px;
+    }
+}
+
+
+/* Phones - Small Screens */
+@media (max-width: 575px) {
+    .app-container {
+        flex-direction: column;
+        width: 100vw;
+        padding: 10px;
+    }
+
+    .logo {
+        left: 170px !important;
+    }
+
+    .search-container {
+        width: 90%;
+        justify-content: center;
+        margin-top: 450px;
+
+    }
+
+    .search-submit {
+
+        transform: translateY(-50%) !important;
+        left: 270px !important;
+        width: 80px !important;
+        height: 36px !important;
+        font-size: 15px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+
+    .input-container {
+        max-width: 250px;
+    }
+
+    .weather-container {
+        height: auto;
+        width: 50% !important;
+        margin-top: 120px !important;
+    }
+
+
+    .weather-card {
+        width: 70% !important;
+        height: 100%;
+        padding: 15px;
+        margin-top: 120px !important;
+        max-width: 90%;
+        padding-bottom: 50px !important;
+
+    }
+
+    .temperature {
+        font-size: 80px;
+    }
+
+    .name,
+    .country,
+    .dateTime,
+    .condition,
+    .precipitation-txt,
+    .humidity-txt,
+    .wind_kph-txt,
+    .precipitation,
+    .humidity,
+    .wind_kph,
+    .hourly-forecast .hour,
+    .degrees {
+        font-size: 15px !important;
+    }
+
+    .precipitation-txt,
+    .humidity-txt,
+    .wind_kph-txt {
+        padding-top: 10px !important;
+        margin: 2px;
+
+    }
+
+    .wind_kph {
+        padding-bottom: 50px !important;
+    }
+
+
+    .details {
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        width: 130%;
+    }
+
+    .footer {
+        margin-bottom: 250px !important;
+        bottom: 100px !important;
+        top: 230px;
+    }
+
+}
+
+
+/* Phones - Small Screens */
+@media (max-width: 320px) {
+    .taxt-search {
+        text-align: center;
+        margin-top: 250px !important;
+    }
+.logo{
+    left: 100px !important;
+}
+    .search-form {
+        width: 300px;
+    }
+
+    .search-submit {
+        left: 210px !important;
+    }
+
+    .hourly-forecast .hour {
+        width: 100% !important;
+        right: 100px !important;
+    }
+
+    .hourly-forecast {
+        margin-left: 47px;
+    }
+
+}
