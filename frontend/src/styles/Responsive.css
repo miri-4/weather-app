@@ -50,7 +50,7 @@
     }
 
     .logo {
-       left:  44% !important;
+        left: 44% !important;
     }
 
     .taxt-search {
@@ -197,9 +197,11 @@
         text-align: center;
         margin-top: 250px !important;
     }
-.logo{
-    left: 100px !important;
-}
+
+    .logo {
+        left: 100px !important;
+    }
+
     .search-form {
         width: 300px;
     }

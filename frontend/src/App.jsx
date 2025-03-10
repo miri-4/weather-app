@@ -21,41 +21,42 @@ import SearchCity from './components/SearchCity';
 import WeatherDisplay from './components/WeatherDisplay';
 
 function App() {
+  // State to manage selected city, weather data, and error state
   let [city, setCity] = useState(null);
   let [weatherData, setWeatherData] = useState(null);
   let [err, setErr] = useState(null);
 
-
-
+  // Function to fetch weather data for the selected city
   const fetchWeather = async () => {
     try {
-      const data = await getWeather(city);
+      const data = await getWeather(city);  // Fetch weather data using the API service
       if (data?.error) {
-        setErr(data.error);
+        setErr(data.error);  
       } else {
-        setWeatherData(data);
+        setWeatherData(data);  
       }
     } catch (err) {
-      setErr("Could not fetch weather data.");
+      setErr("Could not fetch weather data.");  
     }
   };
 
+  // Effect hook to trigger weather data fetch when the city is selected
   useEffect(() => {
-    setErr(null);
-    if (city) fetchWeather();
-    else setErr("No selected city");
+    setErr(null); 
+    if (city) fetchWeather();  
+    else setErr("No selected city");  
   }, [city]);
 
   return (
     <div className="app-container">
       <img src="/logo.svg" alt="Logo" className="logo" />
       <div className="search-container">
-        <SearchCity setCity={setCity} />
+        <SearchCity setCity={setCity} />  
       </div>
       <div className="weather-container">
-        <WeatherDisplay weatherData={weatherData} err={err} />
+        <WeatherDisplay weatherData={weatherData} err={err} />  
       </div>
-      <Footer weatherData={weatherData} err={err} />
+      <Footer weatherData={weatherData} err={err} />  
     </div>
   );
 }

@@ -2,7 +2,7 @@
  * WeatherDisplay Component
  * 
  * This component displays weather information based on provided weather data.
- * It handles errors, formats the date and time, and filters hourly forecast data.
+ * It handles errors, formats the date and time, and filters hourly forecast data across three days.
  * 
  * Props:
  * - weatherData: Object containing weather details including location, temperature, condition, and forecast.
@@ -13,72 +13,73 @@
  * - Formats and shows current date and time.
  * - Shows current temperature and weather condition.
  * - Displays precipitation, humidity, and wind speed.
- * - Filters and displays the hourly forecast for a specific range.
+ * - Filters and displays the hourly forecast for a specific range across three days.
  */
 import '../styles/WeatherDisplay.css'
 
 const WeatherDisplay = ({ weatherData, err }) => {
 
+    // If there's an error, display the error message
     if (err)
         return <div className="error-city">{err}</div>;
 
+    // If no weather data is provided, don't render anything
     if (!weatherData) return null;
 
-    // const dateTime = weatherData?.location?.localtime;
-    // const [date, time] = dateTime.split(" ");
-    // const thisHour = Number(time.split(":")[0]);
-    // const dateFormatted = new Date(date).toLocaleDateString('en-GB');
-    // const hourlyForecast = weatherData?.forecast?.forecastday[0]?.hour || [];
-    // const filteredHours = hourlyForecast.filter(hourData => {
-    //     const hour = Number(hourData.time.split(" ")[1].split(":")[0]);
-    //     return hour >= thisHour - 3 && hour <= thisHour + 1;
-    // });
-
-
-
+    // Extract the local time and split it into date and time
     const dateTime = weatherData?.location?.localtime;
     const [date, time] = dateTime.split(" ");
-    const thisHour = Number(time.split(":")[0]);
-    const dateFormatted = new Date(date).toLocaleDateString('en-GB');
+    const thisHour = Number(time.split(":")[0]);  // Get the current hour (in 24-hour format)
+    const dateFormatted = new Date(date).toLocaleDateString('en-GB');  // Format the date to UK format
 
-    // לוקחים את כל השעות מכל שלושת הימים
-    const allHours = weatherData?.forecast?.forecastday.flatMap(day => day.hour);
+    let hoursRequired = [];
 
-    // חישוב טווח השעות
-    let lowerBound = thisHour - 2;
-    let upperBound = thisHour + 2;
-
-    if (lowerBound < 0) lowerBound += 24;
-    if (upperBound >= 24) upperBound -= 24;
-
-    // הגדרת תאריכים לשלושת הימים
-    const today = date;
-    const yesterday = weatherData.forecast.forecastday[0]?.date;
-    const tomorrow = weatherData.forecast.forecastday[2]?.date;
-
-    // סינון שעות רלוונטיות משלושת הימים
-    const filteredHours = allHours.filter(hourData => {
-        const [hourDate, hourTime] = hourData.time.split(" ");
-        const hour = Number(hourTime.split(":")[0]);
-
-        if (hourDate === today) {
-            return (hour >= lowerBound && hour <= upperBound) || hour === thisHour;
+    // If the current hour is between 2 AM and 10 PM, show forecast data from the next day
+    if (thisHour >= 2 && thisHour < 22)
+        hoursRequired = weatherData.forecast.forecastday[1].hour.slice(thisHour - 2);
+    else {
+        // Handle edge cases for hours between 0 AM to 2 AM and 10 PM to midnight
+        switch (thisHour) {
+            case 0: hoursRequired = [
+                ...weatherData.forecast.forecastday[0].hour.slice(22),
+                ...weatherData.forecast.forecastday[1].hour.slice(0, 22)
+            ];
+                break;
+            case 1: hoursRequired = [
+                ...weatherData.forecast.forecastday[0].hour.slice(23),
+                ...weatherData.forecast.forecastday[1].hour.slice(0, 23)
+            ]
+                break;
+            case 23: hoursRequired = [
+                ...weatherData.forecast.forecastday[1].hour.slice(1),
+                ...weatherData.forecast.forecastday[2].hour.slice(0, 2)
+            ]
+                break;
+            case 22: hoursRequired = [
+                ...weatherData.forecast.forecastday[1].hour.slice(1),
+                ...weatherData.forecast.forecastday[2].hour.slice(0, 1)
+            ]
+                break;
         }
+    }
 
-        if (hourDate === tomorrow && thisHour >= 22 && hour < 2) {
-            return true;
+    // Format the current hour to a 2-digit string (e.g., "04" instead of "4")
+    const formattedHour = String(thisHour).padStart(2, '0');
+
+    // Find the index of the current hour in the filtered hours
+    const currentHourIndex = hoursRequired.findIndex(hour => hour.time.endsWith(` ${formattedHour}:00`));
+
+    let selectedHours = [];
+
+    // If the current hour exists in the array, select the hours around it (2 before, the current hour, and 2 after)
+    if (currentHourIndex !== -1) {
+        for (let i = -2; i <= 2; i++) {
+            const index = currentHourIndex + i;
+            if (index >= 0 && index < hoursRequired.length) {
+                selectedHours.push(hoursRequired[index]);
+            }
         }
-
-        if (hourDate === yesterday && thisHour < 2 && hour >= 22) {
-            return true;
-        }
-
-        return false;
-    });
-    // מיון לפי תאריך ושעה
-    filteredHours.sort((a, b) => new Date(a.time) - new Date(b.time));
-
-    console.log("Sorted Hours:", filteredHours.map(h => h.time));
+    }
 
     return (
         <div className='weather-card'>
@@ -102,11 +103,11 @@ const WeatherDisplay = ({ weatherData, err }) => {
                     wind
                     <div className="wind_kph">{weatherData?.current?.wind_kph} km/h</div>
                 </div>
-
             </div>
 
+            {/* Display hourly forecast data */}
             <div className="hourly-forecast">
-                {filteredHours.map((hourData, index) => (
+                {selectedHours.map((hourData, index) => (
                     <div key={index}>
                         <span className="hour">{hourData.time.split(' ')[1]}</span>
                         <span className="degrees">{Math.round(hourData.temp_c)}°</span>
@@ -114,9 +115,7 @@ const WeatherDisplay = ({ weatherData, err }) => {
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
 export default WeatherDisplay;
-
-
