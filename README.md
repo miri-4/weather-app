@@ -56,7 +56,7 @@ A weather application that allows users to check the weather forecast for a sele
 
    Create a `.env` file in the `backend` folder and add your weather API key:
    ```
-   WEATHER_API_KEY==your_api_key
+   WEATHER_API_KEY=your_api_key
    PORT=5000
    ```
 
