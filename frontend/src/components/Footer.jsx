@@ -1,17 +1,13 @@
 /**
- * Footer Component
- * 
- * This component displays metadata about the weather data, including coordinates and the last update time.
- * It also handles errors and loading states.
+ * Footer - Displays weather metadata.
  * 
  * Props:
- * - weatherData: Object containing weather details, including location and time.
- * - err: String representing an error message if weather data cannot be retrieved.
+ * - weatherData: Location and update time.
+ * - err: Error message if data is unavailable.
  * 
  * Features:
- * - Displays latitude and longitude of the selected location.
- * - Shows the last accurate update time of the weather data.
- * - Handles error messages and loading state.
+ * - Shows coordinates and last update time.
+ * - Handles errors and loading state.
  */
 import React from 'react'
 

@@ -1,22 +1,12 @@
 import axios from 'axios';
-
 /**
- * fetchWeather - Fetches weather data for a given city.
+ * fetchWeather - Fetches weather data for a city.
  * 
- * This function fetches weather data for the specified city, including the current weather,
- * as well as the weather data for yesterday, today, and tomorrow. It uses the WeatherAPI 
- * service to get the forecast.
- * 
- * Parameters:
- * - city: The name of the city to fetch weather data for.
+ * Retrieves weather data for today, tomorrow, and yesterday using WeatherAPI.
  * 
  * Returns:
- * - The combined weather data including today, tomorrow's forecast, and yesterday's weather data.
- * - If an error occurs, it returns an error message.
- * 
- * Errors:
- * - If the location is not found, a 400 error message is returned with the message: "No matching location found."
- * - If there is any other issue, a generic error message is returned.
+ * - Weather data for three days.
+ * - Error message if the location is not found or another issue occurs.
  */
 export const fetchWeather = async (city) => {
     const apiKey = process.env.WEATHER_API_KEY;

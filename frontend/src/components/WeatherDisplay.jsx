@@ -1,19 +1,14 @@
 /**
- * WeatherDisplay Component
- * 
- * This component displays weather information based on provided weather data.
- * It handles errors, formats the date and time, and filters hourly forecast data across three days.
+ * WeatherDisplay - Displays weather data.
  * 
  * Props:
- * - weatherData: Object containing weather details including location, temperature, condition, and forecast.
- * - err: String representing an error message if weather data cannot be retrieved.
+ * - weatherData: Weather details (location, temperature, forecast).
+ * - err: Error message if data is unavailable.
  * 
  * Features:
- * - Displays location name and country.
- * - Formats and shows current date and time.
- * - Shows current temperature and weather condition.
- * - Displays precipitation, humidity, and wind speed.
- * - Filters and displays the hourly forecast for a specific range across three days.
+ * - Shows location, date, time, temperature, and conditions.
+ * - Displays humidity, wind, and precipitation.
+ * - Filters and displays hourly forecast.
  */
 import '../styles/WeatherDisplay.css'
 

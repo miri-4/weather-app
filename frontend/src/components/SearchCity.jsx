@@ -1,16 +1,12 @@
 /**
- * SearchCity Component
- * 
- * This component allows users to search for a city to get weather information.
- * It uses react-hook-form for form handling and validation.
+ * SearchCity - City search input.
  * 
  * Props:
- * - setCity: Function to update the selected city.
+ * - setCity: Updates the selected city.
  * 
  * Features:
- * - Displays a search input for city name.
- * - Validates input to ensure a city is entered.
- * - Submits the selected city to update the weather data.
+ * - Validates and submits city name.
+ * - Updates weather data.
  */
 
 import { useForm } from "react-hook-form";

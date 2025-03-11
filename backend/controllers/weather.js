@@ -1,20 +1,12 @@
 import { fetchWeather } from "../utils/weather.js";
-
 /**
- * getWeather - API handler for fetching weather data for a given city.
- * 
- * This function handles a GET request to retrieve weather data for a specified city.
- * It expects a city name as a query parameter. If the city is missing or the API 
- * returns an error, appropriate error messages are sent in the response.
- * 
- * Query Parameters:
- * - city: The name of the city to fetch weather data for.
+ * getWeather - Handles GET requests for weather data.
  * 
  * Responses:
- * - 200 OK: Returns weather data for the requested city.
- * - 400 Bad Request: If the city query parameter is missing.
- * - 404 Not Found: If the weather API returns an error.
- * - 500 Internal Server Error: If an unexpected error occurs during the process.
+ * - 200: Returns weather data.
+ * - 400: Missing city parameter.
+ * - 500: Weather API error.
+ * - 500: Server error.
  */
 export const getWeather = async (req, res) => {
     let { city } = req.query;
@@ -29,7 +21,7 @@ export const getWeather = async (req, res) => {
         
         // If there's an error in the weather response, return a 404 error
         if (weatherRes.error) {
-            return res.status(404).json({
+            return res.status(500).json({
                 title: "Weather API Error",
                 message: weatherRes.error.message
             });

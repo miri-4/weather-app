@@ -78,37 +78,46 @@ A weather application that allows users to check the weather forecast for a sele
  ```bash
 weather-app/
 ├── backend/
-│   ├── node_modules/                  # Installed dependencies for Node.js
-│   ├── routes/                        # Directory containing the API routes
-│   │   └── weather.js                 # Weather forecast route file
 │   ├── .env                           # Environment variables file (e.g., API key)
+│   ├── .env.example                   # Example of environment variables file
+│   ├── .gitignore                     # Git Ignore File for the backend
+│   ├── package-lock.json              # Lock file for backend dependencies
 │   ├── package.json                   # Backend project's dependencies and settings
 │   ├── server.js                      # Main server code (Express)
-│   └── README.md                      # Backend documentation
+│   ├── controllers/                   # Directory containing backend logic
+│   │   └── weather.js                 # Weather controller file
+│   ├── routes/                        # Directory containing API routes
+│   │   └── weather.js                 # Weather forecast route file
+│   └── utils/                         # Utility functions for backend
+│       └── weather.js                 # Weather-related utilities
 │
 ├── frontend/
-│   ├── node_modules/                  # Installed dependencies for React
+│   ├── .gitignore                     # Git Ignore File for the frontend
+│   ├── eslint.config.js                # ESLint configuration file
+│   ├── index.html                     # HTML Template for the React app
+│   ├── package-lock.json              # Lock file for frontend dependencies
+│   ├── package.json                   # Frontend project's dependencies and settings
+│   ├── vite.config.js                 # Vite configuration for the frontend
 │   ├── public/                        # Public files like logo, favicon, etc.
-│   │   └── logo.svg                   # Logo of the application
-│   ├── src/                           # Source code for the React app
-│   │   ├── api/                       # API calls directory (communicating with the backend)
-│   │   │   └── weatherService.js      # Weather API service
-│   │   ├── components/                # React components directory
-│   │   │   ├── Footer.jsx             # Footer component
-│   │   │   ├── SearchCity.jsx         # City search component
-│   │   │   ├── WeatherDisplay.jsx     # Weather display component
-│   │   │   └── ...                    # Additional components
-│   │   ├── styles/                    # Styles (CSS files)
-│   │   │   ├── App.css                # Styles for the main React app
-│   │   │   ├── Responsive.css         # Responsive styles for mobile, tablet, and desktop
-│   │   │   └── WeatherDisplay.css     # Styles for weather display component
-│   │   ├── App.jsx                    # Main React component for the app
-│   │   ├── index.css                  # Global Styles
-│   │   ├── main.jsx                   # App Entry
-│   ├── .gitignore                     # Git Ignore File
-│   ├── index.html                     # HTML Template
-│   ├── package.json                   # Frontend Dependencies
-│   ├── package-lock.json              # Frontend Lock File
+│   │   ├── logo.svg                   # Logo of the application
+│   │   └── vite.svg                   # Vite logo (default)
+│   └── src/                           # Source code for the React app
+│       ├── api/                       # API calls directory (communicating with the backend)
+│       │   └── weatherService.js      # Weather API service
+│       ├── assets/                    # Static assets like images, icons
+│       │   └── react.svg              # React logo
+│       ├── components/                # React components directory
+│       │   ├── Footer.jsx             # Footer component
+│       │   ├── SearchCity.jsx         # City search component
+│       │   ├── WeatherDisplay.jsx     # Weather display component
+│       ├── styles/                    # Styles (CSS files)
+│       │   ├── App.css                # Styles for the main React app
+│       │   ├── Responsive.css         # Responsive styles for mobile, tablet, and desktop
+│       │   ├── SearchCity.css         # Styles for the SearchCity component
+│       │   └── WeatherDisplay.css     # Styles for weather display component
+│       ├── App.jsx                    # Main React component for the app
+│       ├── index.css                  # Global styles for the app
+│       └── main.jsx                   # App entry point
 ├── .gitignore                         # Git ignore file for the root project
 ├── README.md                          # Main project documentation
 └── package.json                       # General project dependencies and settings
